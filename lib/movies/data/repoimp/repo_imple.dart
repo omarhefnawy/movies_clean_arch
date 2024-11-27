@@ -20,6 +20,7 @@ class MoviesRepoImpl extends MoviesRepo {
     } on ServerException catch (fail) {
       return Left(ServerFailure(fail.movieError.status_message));
     } catch (e) {
+      print(e.toString());
       return Left(ServerFailure("An unexpected error occurred: $e"));
     }
   }
